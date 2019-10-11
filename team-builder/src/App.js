@@ -5,29 +5,30 @@ import ListForm from "./Form";
 import Team from "./TeamBuild";
 
 function App() {
-  const [list, setList] = useState([{
-    name:"Rosa",
-    email:"rosa@gmail.com",
+  const [lists, setList] = useState([{
+    name:"Carlos",
+    email:"carlos@email.com",
     role: "backend engineer",
   }]);
 
 
 const addList = list => {
   const newList = {
-    name: Date.now(),
+    id:Date.now(),
+    name:list.name,
     email: list.email,
     role: list.role,
   }
-  setList([...list, newList])
+  setList([...lists, newList])
 }
 
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>team builder</h1>
-        <ListForm addListfn={addList}/>
-        <Team teamList={list}/>
+        <h1>Team Builder</h1>
+        <ListForm addListFn={addList}/>
+        <Team teamList={lists}/>
         {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
